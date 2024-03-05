@@ -3,8 +3,8 @@
     <p class="question">{{ feedback.content[index].question }}</p>
     <ul class="feed">
         <li class="card" *ngFor="let f of feed">
-            <img src="{{imageRoute}}/{{f.image}}" alt="">
-            <button class="vote" (click)="DoRate(f.indexRate)" (click)="ChangeColor(f.indexRate)"><img src="{{imageRoute}}/Like.png" alt=""></button>
+            <img src="assets/{{f.image}}" alt="">
+            <button class="vote" (click)="DoRate(f.indexRate)" (click)="ChangeColor(f.indexRate)"><img src="assets/Like.png" alt=""></button>
         </li>
     </ul>
 </div>

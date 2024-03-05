@@ -1,7 +1,7 @@
 <div class="menti-feedback-results" *ngIf="feedback">
     <div class="controls">
-        <button class="btn-previous" (click)="PreviousQuestion()"><img src="{{ imageRoute }}/proximo.png" alt=""></button>
-        <button class="btn-next" (click)="NextQuestion()"><img src="{{ imageRoute }}/proximo.png" alt=""></button>
+        <button class="btn-previous" (click)="PreviousQuestion()"><img src="assets/proximo.png" alt=""></button>
+        <button class="btn-next" (click)="NextQuestion()"><img src="assets/proximo.png" alt=""></button>
     </div>
 
     <h1>Room code {{ feedback.roomCode }}</h1>
@@ -9,7 +9,7 @@
     
     <ul class="feed">
         <li class="card" *ngFor="let f of feed">
-            <img src="{{ imageRoute }}/{{ f.image }}" alt="">
+            <img src="assets/{{ f.image }}" alt="">
             <p class="vote">{{ feedback.content[indexQuestion].rating[f.index] }}</p>
         </li>
     </ul>
