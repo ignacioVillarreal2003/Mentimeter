@@ -10,47 +10,33 @@ export class DataService {
   
   [key: string]: any;
 
+   // Propiedad para almacenar la imagen de fondo actual
   background: string = "background3.avif";
+
+  // Lista de fondos disponibles con su respectivo color
   backgrounds: IBackground[] = [
-    {
-      background: "background1.avif",
-      color: "white"
-    },
-    {
-      background: "background2.avif",
-      color: "black"
-    },
-    {
-      background: "background3.avif",
-      color: "black"
-    },
-    {
-      background: "background4.avif",
-      color: "black"
-    },
-    {
-      background: "background5.avif",
-      color: "white"
-    },
-    {
-      background: "background6.avif",
-      color: "white"
-    },
-    {
-      background: "background7.avif",
-      color: "black"
-    }
+    { background: "background1.avif", color: "white" },
+    { background: "background2.avif", color: "black" },
+    { background: "background3.avif", color: "black" },
+    { background: "background4.avif", color: "black" }, 
+    { background: "background5.avif", color: "white" },
+    { background: "background6.avif", color: "white" },
+    { background: "background7.avif", color: "black" }
   ]
 
+  // Propiedades para almacenar información de las diferentes salas
   roomFeedback: IRoomFeedback | undefined = undefined;
   roomBrainstorming: IRoomBrainstorming | undefined = undefined;
   roomQuiz: IRoomQuiz | undefined = undefined;
   roomMultipleChoice: IRoomMultipleChoice | undefined = undefined;
 
-  roomAnswer:IRoomAnswerFeedback | IRoomAnswersBrainstorming | IRoomAnswersMultipleChoice | IRoomAnswersQuiz| undefined = undefined
-  
+  // Propiedad para almacenar la respuesta de una sala específica
+  roomAnswer: IRoomAnswerFeedback | IRoomAnswersBrainstorming | IRoomAnswersMultipleChoice | IRoomAnswersQuiz | undefined = undefined;
+
+  // Propiedad para almacenar el nombre de usuario
   username: string | undefined = undefined;
 
+  // Método para generar un código de sala aleatorio
   GenerateRoomCode(): string {
     const digits = '0123456789';
     let roomCode = '';
