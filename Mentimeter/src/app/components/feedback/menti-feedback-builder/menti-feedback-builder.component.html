@@ -1,0 +1,46 @@
+<div class="menti-feedback-builder">
+    <header><img src="../../../assets/logo.svg" alt=""></header>
+
+    <div class="container">
+        <div class="editor-overview">
+            <button class="btn-add-slide" (click)="AddSlide()">+</button>
+            <ul>
+                <li *ngFor="let cont of content; let i = index"><button class="btn-slide" (click)="OpenSlide(i)">Slide {{i}}</button></li>
+            </ul>
+            <button class="btn-submit" (click)="PostFeedback()"><img src="{{ imageRoute }}/enviar.png" alt=""></button>
+        </div>
+
+        <div class="preview">
+            <p>{{ question }}</p>
+            <ul class="feed">
+                <img src="{{ imageRoute }}/feed2.svg" alt="">
+                <img src="{{ imageRoute }}/feed3.svg" alt="">
+                <img src="{{ imageRoute }}/feed4.svg" alt="">
+                <img src="{{ imageRoute }}/feed5.svg" alt="">
+                <img src="{{ imageRoute }}/feed1.svg" alt="">
+            </ul>
+        </div>
+
+        <div class="options">
+            <div class="mode">
+                <button class="mode1 modeOn" (click)="ChangeMode(1)"><img src="{{ imageRoute }}/Lapiz.png" alt=""></button>
+                <button class="mode2 modeOff" (click)="ChangeMode(2)"><img src="{{ imageRoute }}/BrochaDeRodillo.png" alt=""></button>
+            </div>
+            <div class="content-mode1">
+                <h2>Content</h2>
+                <div class="specification">
+                    <p>Question</p>
+                    <input class="input-question" type="text" [(ngModel)]="question" maxlength="120">
+                </div>
+            </div>
+            <div class="content-mode2">
+                <h2>Themes</h2>
+                <div class="theme-list">
+                    <ul>
+                        <li *ngFor="let background of backgrounds"><button (click)="ChangeBackground(background)"><img src="../../../assets/{{background.background}}"></button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

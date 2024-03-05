@@ -1,0 +1,18 @@
+<div class="create-menti">
+    <header>
+        <img src="{{ imageRoute }}/logo.svg" alt="">
+        <button class="btn-configuration" routerLink="/optionsMenti"><img src="{{ imageRoute }}/Options.png" alt=""></button>
+    </header>
+
+    <div class="modes">
+        <h1>Choose a mode</h1>
+        <ul *ngIf="modes">
+            <li [class]="mode.class" *ngFor="let mode of modes">
+                <a [routerLink]="mode.router">
+                    <div class="image"><img [src]="mode.image" alt=""></div>
+                    <h2>{{ mode.title }}</h2>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

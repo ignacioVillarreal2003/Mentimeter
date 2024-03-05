@@ -1,0 +1,10 @@
+<div class="feedback-view" *ngIf="feedback">
+    <button class="btn-next" (click)="NextQuestion()">Next</button>
+    <p class="question">{{ feedback.content[index].question }}</p>
+    <ul class="feed">
+        <li class="card" *ngFor="let f of feed">
+            <img src="{{imageRoute}}/{{f.image}}" alt="">
+            <button class="vote" (click)="DoRate(f.indexRate)" (click)="ChangeColor(f.indexRate)"><img src="{{imageRoute}}/Like.png" alt=""></button>
+        </li>
+    </ul>
+</div>

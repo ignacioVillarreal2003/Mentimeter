@@ -1,0 +1,10 @@
+<div class="main-page">
+    <div class="title">
+        <img src="../../../assets/logo.svg" alt="">
+        <h1>Mentimeter</h1>
+    </div>
+    <h2>Enter the code to join</h2>
+    <input class="input-room-code" type="text" name="room-code" placeholder="12345678" [(ngModel)]="roomCode">
+    <button class="button-join" (click)="JoinRoom()">Join</button>
+    <button class="button-create-menti" routerLink="/loginMenti">Create a Menti</button>
+</div>

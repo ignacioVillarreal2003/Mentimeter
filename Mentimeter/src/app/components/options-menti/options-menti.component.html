@@ -1,0 +1,17 @@
+<div class="options-menti">
+    <header>
+        <img src="../../../assets/logo.svg" alt="">
+    </header>
+    <h2>Change the password</h2>
+    <div class="content">
+        <div class="data">
+            <label for="currentPassword">Current password</label>
+            <input type="password" id="currentPassword" [(ngModel)]="password">
+        </div>
+        <div class="data">
+            <label for="newPassword">New password</label>
+            <input type="password" id="newPassword" [(ngModel)]="newPassword">
+        </div>
+        <button (click)="ChangePassword()">Save</button>
+    </div>
+</div>
