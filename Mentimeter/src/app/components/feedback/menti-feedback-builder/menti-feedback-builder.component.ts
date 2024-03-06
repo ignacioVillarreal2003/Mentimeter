@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { HttpService } from 'src/app/services/http.service';
-import { IBackground, IFeedbackContent, IRoomFeedback } from 'src/app/types';
+import { IFeedbackContent, IRoomFeedback } from 'src/app/types';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,17 +21,14 @@ export class MentiFeedbackBuilderComponent {
   lastSlide: number = 0;
 
   // Arreglo de fondos para las diapositivas
-  backgrounds: IBackground[] | undefined = undefined;
+  backgrounds: string[] | undefined = undefined;
 
   constructor(private router: Router, private dataService: DataService, private httpService: HttpService) {
     // Inicialización de los fondos desde el servicio de datos
     this.backgrounds = this.dataService.backgrounds;
 
     // Creación de la primera diapositiva por defecto
-    this.content.push({
-      question: "Question 0",
-      rating: [0, 0, 0, 0, 0]
-    });
+    this.content.push({ question: "Question 0", rating: [0, 0, 0, 0, 0] });
   }
 
   // Método para agregar una nueva diapositiva
@@ -95,22 +92,11 @@ export class MentiFeedbackBuilderComponent {
   }
 
   // Método para cambiar el fondo de la diapositiva
-  ChangeBackground(bg: IBackground) {
-    // Obtener las referencias a los elementos de la diapositiva
+  ChangeBackground(bg: string) {
     const view = document.querySelector('.menti-feedback-builder .preview') as HTMLElement;
-    const text = document.querySelector('.menti-feedback-builder .preview p') as HTMLElement;
-
-    // Cambiar la imagen de fondo y el color del texto
-    view.style.backgroundImage = `url(assets/${bg.background})`;
-    if (this.backgrounds) {
-      this.backgrounds.forEach((e: IBackground) => {
-        if (e.background == bg.background) {
-          text.style.color = e.color;
-        }
-      });
-    }
+    view.style.backgroundImage = `url(assets/${bg})`;
     // Actualizar el fondo en el servicio de datos
-    this.dataService.background = bg.background;
+    this.dataService.background = bg;
   }
 
   // Método para cambiar el modo entre contenido y temas

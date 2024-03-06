@@ -1,0 +1,16 @@
+<div class="menti-multiple-choice-results" *ngIf="multipleChoice">
+    <div class="controls">
+        <button class="btn-previous" (click)="PreviousQuestion()"><img src="../../../../assets/proximo.png" alt=""></button>
+        <button class="btn-next" (click)="NextQuestion()"><img src="../../../../assets/proximo.png" alt=""></button>
+    </div>
+    <h1>Room code {{ multipleChoice.roomCode }}</h1>
+    <p class="question">{{ multipleChoice.content[indexQuestion].question }}</p>
+    <ul class="feed">
+        <li class="card" *ngFor="let options of multipleChoice.content[indexQuestion].optionsMultipleChoice">
+            <h2>{{  options.option }}</h2>
+            <p class="vote">{{ options.rating }}</p>
+        </li>
+    </ul>
+    <button class="btn-leave" (click)="closeSocket()">Leave</button>
+</div>
+

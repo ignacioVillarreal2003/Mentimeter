@@ -88,8 +88,3 @@ export interface IQuizOption{
     isCorect: boolean,
     quantity: number
 }
-
-export interface IBackground{
-    background: string,
-    color: string
-}

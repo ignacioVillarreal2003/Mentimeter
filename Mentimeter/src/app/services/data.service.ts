@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IBackground, IRoomAnswerFeedback, IRoomAnswersBrainstorming, IRoomAnswersMultipleChoice, IRoomAnswersQuiz, IRoomBrainstorming, IRoomFeedback, IRoomMultipleChoice, IRoomQuiz } from '../types';
+import { IRoomAnswerFeedback, IRoomAnswersBrainstorming, IRoomAnswersMultipleChoice, IRoomAnswersQuiz, IRoomBrainstorming, IRoomFeedback, IRoomMultipleChoice, IRoomQuiz } from '../types';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +10,11 @@ export class DataService {
   
   [key: string]: any;
 
-   // Propiedad para almacenar la imagen de fondo actual
+  // Propiedad para almacenar la imagen de fondo actual
   background: string = "background3.avif";
 
   // Lista de fondos disponibles con su respectivo color
-  backgrounds: IBackground[] = [
-    { background: "background1.avif", color: "white" },
-    { background: "background2.avif", color: "black" },
-    { background: "background3.avif", color: "black" },
-    { background: "background4.avif", color: "black" }, 
-    { background: "background5.avif", color: "white" },
-    { background: "background6.avif", color: "white" },
-    { background: "background7.avif", color: "black" }
-  ]
+  backgrounds: string[] = [  "background1.avif",  "background2.avif",  "background3.avif",  "background4.avif" ];
 
   // Propiedades para almacenar información de las diferentes salas
   roomFeedback: IRoomFeedback | undefined = undefined;

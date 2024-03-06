@@ -71,7 +71,7 @@ export class FeedbackViewComponent {
         } else if (this.index == this.feedback.content.length - 1) {
           // Enviar la calificación al servidor y navegar a la página de finalización del feedback
           this.PostFeedback();
-          this.router.navigate(['/feedbackEnd']);
+          this.router.navigate(['/mentiEnd']);
           this.isRate = false;
         } else {
           // Mostrar mensaje de error si no se ha seleccionado una opción
@@ -123,7 +123,7 @@ export class FeedbackViewComponent {
 
   // Método para cambiar el color de las opciones de calificación
   ChangeColor(color: number) {
-    const buttons = document.querySelectorAll('.vote') as NodeListOf<HTMLElement>;
+    const buttons = document.querySelectorAll('.feedback-view .vote') as NodeListOf<HTMLElement>;
     // Establecer el fondo blanco para todas las opciones
     buttons.forEach((e) => {
       e.style.backgroundColor = "white";

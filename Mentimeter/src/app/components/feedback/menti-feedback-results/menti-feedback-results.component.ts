@@ -3,7 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { SocketService } from 'src/app/services/socket.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { IBackground, IRoomFeedback } from 'src/app/types';
+import { IRoomFeedback } from 'src/app/types';
 
 @Component({
   selector: 'app-menti-feedback-results',
@@ -59,42 +59,8 @@ export class MentiFeedbackResultsComponent {
 
   ngAfterViewInit() {
     // Cambiar el tema de la interfaz gráfica
-    this.ChangeTheme();
-  }
-
-  // Método para cambiar el tema de la interfaz gráfica
-  ChangeTheme() {
-    // Obtener referencias a elementos de la interfaz gráfica
-    const texto1 = document.querySelector('.menti-feedback-results h1') as HTMLElement;
-    const texto2 = document.querySelector('.menti-feedback-results .question') as HTMLElement;
-    const texto3 = document.querySelectorAll('.menti-feedback-results .vote') as NodeListOf<HTMLElement>;
     const background = document.querySelector('.menti-feedback-results') as HTMLElement;
-    const controls = document.querySelectorAll('.menti-feedback-results .controls button') as NodeListOf<HTMLElement>;
-
-    // Color por defecto es negro
-    let color: string = "black";
-
-    // Buscar el color correspondiente al fondo actual
-    this.dataService.backgrounds.forEach((e: IBackground) => {
-      if (e.background == this.dataService.background) {
-        color = e.color;
-      }
-    })
-
-    // Aplicar los colores y fondo a los elementos de la interfaz gráfica
-    texto1.style.color = color;
-    texto2.style.color = color;
-    texto3.forEach((e) => {
-      e.style.color = color;
-    })
     background.style.backgroundImage = `url(assets/${this.dataService.background})`;
-
-    // Invertir los colores si el fondo es blanco
-    if (color == "white") {
-      controls.forEach((e) => {
-        e.style.filter = "invert(100%)";
-      })
-    }
   }
 
   // Método para avanzar a la siguiente pregunta

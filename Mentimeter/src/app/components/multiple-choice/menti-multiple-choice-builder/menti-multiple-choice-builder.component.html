@@ -1,4 +1,4 @@
-<div class="menti-feedback-builder">
+<div class="menti-multiple-choice-builder">
     <header><img src="../../../assets/logo.svg" alt=""></header>
 
     <div class="container">
@@ -7,17 +7,14 @@
             <ul>
                 <li *ngFor="let cont of content; let i = index"><button class="btn-slide" (click)="OpenSlide(i)">Slide {{i}}</button></li>
             </ul>
-            <button class="btn-submit" (click)="PostFeedback()"><img src="assets/enviar.png" alt=""></button>
+            <button class="btn-submit" (click)="PostMultipleChoice()"><img src="assets/enviar.png" alt=""></button>
         </div>
 
         <div class="preview">
             <p>{{ question }}</p>
             <div class="feed">
-                <img src="assets/feed2.svg" alt="">
-                <img src="assets/feed3.svg" alt="">
-                <img src="assets/feed4.svg" alt="">
-                <img src="assets/feed5.svg" alt="">
-                <img src="assets/feed1.svg" alt="">
+                <ul><li *ngFor="let text of texts"><p class="op">{{ text }}</p></li></ul>
+                <div class="form1"></div>
             </div>
         </div>
 
@@ -28,9 +25,17 @@
             </div>
             <div class="content-mode1">
                 <h2>Content</h2>
-                <div class="specification">
+                <div class="specification1">
                     <p>Question</p>
                     <input class="input-question" type="text" [(ngModel)]="question" maxlength="120">
+                </div>
+                <div class="specification2">
+                    <p>Options</p>
+                    <div class="selectors">
+                        <input class="input-option-number" type="number" min="1" max="{{ texts.length }}" [(ngModel)]="selectedOption" (click)="ClearText()" />
+                        <button class="btn-option" (click)="AddOption()">Add option</button>
+                        <input class="input-option" type="text" maxlength="120" [(ngModel)]="inputText" (input)="ChangeOption($event, selectedOption)"/>
+                    </div>
                 </div>
             </div>
             <div class="content-mode2">
@@ -44,3 +49,7 @@
         </div>
     </div>
 </div>
+
+
+
+   
