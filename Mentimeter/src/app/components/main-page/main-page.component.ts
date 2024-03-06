@@ -11,59 +11,118 @@ import { IRoomBrainstorming, IRoomFeedback, IRoomMultipleChoice, IRoomQuiz } fro
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
-  // Variable para almacenar el código de la sala
+
   roomCode: string = "";
+  username: string = "";
+  password: string = "";
 
-  constructor(private dataService: DataService, private httpService: HttpService, private router: Router) {}
+  constructor(private dataService: DataService, private httpService: HttpService, private router: Router) { }
 
-  // Método para unirse a una sala
   JoinRoom() {
-    // Enviar solicitud al servicio HTTP para obtener la información de la sala
-    this.httpService.GetRoom(this.roomCode).subscribe(
-      // Manejar la respuesta de la solicitud
-      (response: IRoomFeedback | IRoomBrainstorming | IRoomQuiz | IRoomMultipleChoice | undefined) => {
-        // Verificar si se obtuvo una respuesta válida
-        if (response) {
-          // Determinar el tipo de sala y redirigir según el tipo
-          switch (response.roomType) {
-            case 'Feedback':
-              this.HandleRoomResponse(response, 'roomFeedback', '/feedbackView');
-              break;
-            case 'MultipleChoice':
-              this.HandleRoomResponse(response, 'roomMultipleChoice', '/multipleChoiceView');
-              break;
-            case 'Brainstorming':
-              this.HandleRoomResponse(response, 'roomBrainstorming', '/brainstormingView');
-              break;
-            case 'Quiz':
-              this.HandleRoomResponse(response, 'roomQuiz', '/quizView');
-              break;
-            default:
-              this.GetError('Error obteniendo la sala.');
+    if (this.CheckRoomCodeData()) {
+      this.httpService.GetRoom(this.roomCode).subscribe(
+        (response: IRoomFeedback | IRoomBrainstorming | IRoomQuiz | IRoomMultipleChoice | undefined) => {
+          if (response) {
+            switch (response.roomType) {
+              case 'Feedback':
+                this.HandleRoomResponse(response, 'roomFeedback', '/feedbackView');
+                break;
+              case 'MultipleChoice':
+                this.HandleRoomResponse(response, 'roomMultipleChoice', '/multipleChoiceView');
+                break;
+              case 'Brainstorming':
+                this.HandleRoomResponse(response, 'roomBrainstorming', '/brainstormingView');
+                break;
+              case 'Quiz':
+                this.HandleRoomResponse(response, 'roomQuiz', '/quizView');
+                break;
+              default:
+                this.GetError('Error obtaining the room.');
+            }
+          } else {
+            this.GetError('Error obtaining the room.');
           }
-        } else {
-          // Mostrar mensaje de error si no se obtuvo una respuesta válida
-          this.GetError('Error obteniendo la sala.');
+        },
+        (error: any) => {
+          this.GetError(error);
+          console.log(error);
         }
-      },
-      // Manejar errores de la solicitud
-      (error: any) => {
-        // Mostrar mensaje de error y registrar el error en la consola
-        this.GetError(error);
-        console.log(error);
-      }
-    );
+      );
+    }
   }
 
-  // Método para manejar la respuesta de la sala y redirigir
+  Login() {
+    if (this.CheckUserData()) {
+      this.httpService.Login(this.username, this.password).subscribe(
+        (response: any) => {
+          this.dataService.username = this.username;
+          localStorage.setItem('token', response);
+          this.router.navigate(['/createMenti']);
+        },
+        (error: any) => {
+          this.GetError(error);
+        }
+      );
+    }
+  }
+
+  Register() {
+    if (this.CheckUserData()) {
+      this.httpService.Register(this.username, this.password).subscribe(
+        (response: any) => {
+          this.dataService.username = this.username;
+          localStorage.setItem('token', response);
+          this.router.navigate(['/createMenti']);
+        },
+        (error: any) => {
+          this.GetError(error);
+        }
+      );
+    }
+  }
+
   HandleRoomResponse(response: any, dataServiceProperty: string, route: string) {
-    // Almacenar la información de la sala en el servicio de datos
     this.dataService[dataServiceProperty] = response;
-    // Navegar a la ruta especificada
     this.router.navigate([route]);
   }
 
-  // Método para mostrar mensajes de error
+  CheckUserData() {
+    if (this.username.length < 8) {
+      this.GetError("Username of at least 8 characters.");
+      return false;
+    }
+    if (this.password.length < 8) {
+      this.GetError("Password of at least 8 characters.");
+      return false;
+    }
+    return true;
+  }
+
+  CheckRoomCodeData() {
+    if (this.roomCode.length != 8) {
+      this.GetError("Room code of at least 8 characters.");
+      return false;
+    }
+    return true;
+  }
+
+  ChangeMode(mode: number) {
+    const modeOneView = document.querySelector('.main-page .mode1') as HTMLElement;
+    const modeTwoView = document.querySelector('.main-page .mode2') as HTMLElement;
+
+    if (mode == 1) {
+      modeOneView.style.display = "flex";
+      modeTwoView.style.display = "none";
+
+    } else if (mode == 2) {
+      modeOneView.style.display = "none";
+      modeTwoView.style.display = "flex";
+    }
+    this.username = "";
+    this.password = "";
+    this.roomCode = "";
+  }
+
   GetError(error: string) {
     Swal.fire({
       icon: 'error',
@@ -73,5 +132,6 @@ export class MainPageComponent {
       timerProgressBar: true
     });
   }
+
 }
 

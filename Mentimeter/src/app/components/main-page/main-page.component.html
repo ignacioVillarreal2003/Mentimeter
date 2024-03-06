@@ -1,10 +1,22 @@
 <div class="main-page">
-    <div class="title">
-        <img src="../../../assets/logo.svg" alt="">
-        <h1>Mentimeter</h1>
+    <div class="content">
+        <div class="selector">
+            <button class="btn-selector" (click)="ChangeMode(1)">Join</button>
+            <button class="btn-selector" (click)="ChangeMode(2)">Login</button>
+        </div>
+        <div class="mode1">
+            <h2>Enter the code to join</h2>
+            <input class="input-room-code" type="text" name="room-code" placeholder="12345678" [(ngModel)]="roomCode">
+            <button class="btn-join" (click)="JoinRoom()">Join</button>
+        </div>
+        <div class="mode2">
+            <h2>Login to create a menti</h2>
+            <input class="input-username" type="text" placeholder="Username" [(ngModel)]="username">
+            <input class="input-password" type="password" placeholder="Password" [(ngModel)]="password">
+            <div class="user-butons">
+                <button class="btn-login" (click)="Login()">Login</button>
+                <button class="btn-register" (click)="Register()">Register</button>
+            </div>
+        </div>
     </div>
-    <h2>Enter the code to join</h2>
-    <input class="input-room-code" type="text" name="room-code" placeholder="12345678" [(ngModel)]="roomCode">
-    <button class="button-join" (click)="JoinRoom()">Join</button>
-    <button class="button-create-menti" routerLink="/loginMenti">Create a Menti</button>
 </div>

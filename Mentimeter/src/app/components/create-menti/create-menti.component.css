@@ -6,42 +6,40 @@
 }
 
 /* Header */
-.create-menti header {
+.create-menti header{
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    gap: 30px;
     padding: 10px 5%;
 }
 
-.create-menti header img {
-    width: 30px;
-    height: 30px;
+.create-menti header img{
+    width: 50px;
+    height: 50px;
 }
 
 .create-menti header .btn-configuration {
     background-color: transparent;
     border: none;
-    cursor: pointer;
-    transition: all .35s ease-in;
-}
-
-.create-menti header .btn-configuration:hover {
-    transform: scale(1.1);
 }
 
 .create-menti header .btn-configuration img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
+/* Modes */
 .create-menti .modes {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
     background-color: rgb(240, 245, 250);
     padding: 40px;
-    margin-bottom: 40px;
 }
 
 .create-menti .modes h1 {
@@ -51,15 +49,14 @@
 }
 
 .create-menti .modes ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
-    gap: 50px;
+    width: 700px;
+    height: 700px;
+    display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
+    flex-wrap: wrap;
     padding: 0;
-    width: 90%;
-    min-height: 500px;
 }
 
 .create-menti .modes ul li a {
@@ -69,17 +66,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     padding: 10px;
     padding-top: 0;
 }
 
-.create-menti .modes ul li a:hover .image {
-    opacity: 0.7;
-}
-
-.create-menti .modes ul li a:hover h2 {
+.create-menti .modes ul li a:hover {
     opacity: 0.7;
 }
 
@@ -98,21 +91,117 @@
 }
 
 .create-menti .modes ul li a h2 {
-    font-size: 25px;
+    font-size: 28px;
 }
 
-.create-menti .modes .option1 a .image {
+.create-menti .modes .option1 a {
     background-color: rgb(255, 214, 227);
 }
 
-.create-menti .modes .option2 a .image {
+.create-menti .modes .option2 a {
     background-color: rgb(255, 232, 122);
 }
 
-.create-menti .modes .option3 a .image {
+.create-menti .modes .option3 a {
     background-color: rgb(136, 193, 161);
 }
 
-.create-menti .modes .option4 a .image {
+.create-menti .modes .option4 a {
     background-color: rgb(209, 212, 255);
+}
+
+@media (max-width: 720px){
+    .create-menti .modes h1 {
+        margin-bottom: 30px;
+        font-size: 35px;
+    }
+
+    .create-menti .modes ul {
+        width: 500px;
+        height: 500px;
+    }
+    
+    .create-menti .modes ul li a {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .create-menti .modes ul li a .image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .create-menti .modes ul li a .image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .create-menti .modes ul li a h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px){
+    .create-menti .modes h1 {
+        margin-bottom: 25px;
+        font-size: 30px;
+    }
+
+    .create-menti .modes ul {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .create-menti .modes ul li a {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .create-menti .modes ul li a .image {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 10px;
+    }
+
+    .create-menti .modes ul li a .image img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .create-menti .modes ul li a h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px){
+    .create-menti .modes h1 {
+        margin-bottom: 25px;
+        font-size: 26px;
+    }
+
+    .create-menti .modes ul {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .create-menti .modes ul li a {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .create-menti .modes ul li a .image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .create-menti .modes ul li a .image img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .create-menti .modes ul li a h2 {
+        font-size: 20px;
+    }
 }

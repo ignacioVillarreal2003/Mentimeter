@@ -2,37 +2,59 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     width: 100%;
     height: 100vh;
+    background-image: url(../../../assets/bg.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    filter: brightness(1.1) saturate(80%);
+    opacity: 0.9;
 }
 
-.main-page .title{
+.main-page .content {
+    width: 500px;
+    height: 550px;
+    background-color: rgba(182, 226, 255, 0.548);
+    padding: 20px;
+}
+
+.main-page .content .selector {
     display: flex;
     align-items: center;
-    justify-content: center; 
-    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.main-page .content .selector .btn-selector{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    transition: all .35s ease;
+    margin-bottom: 60px;
+}
+
+.main-page .content .selector .btn-selector:hover{
+    border-bottom: 1px solid black;
+}
+
+.main-page .content .mode1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-page .content .mode1 h2{
+    font-size: 28px;
     margin-bottom: 40px;
 }
 
-.main-page .title img{
-    width: 50px;
-    height: 50px;
-}
-
-.main-page .title h1{
-    font-size: 30px;
-}
-
-.main-page h2{
-    font-size: 26px;
-    margin-bottom: 20px;
-}
-
-.main-page .input-room-code{
+.main-page .content .mode1 .input-room-code{
     width: 280px;
     height: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 25px;
     text-align: center;
     border: none;
@@ -41,29 +63,98 @@
     border-radius: 10px;
 }
 
-.main-page .input-room-code:hover {
-    border: 2px solid #6E54BD;
+.main-page .content .mode1 .input-room-code:hover {
+    border: 2px solid #8860ff;
 }
 
-.main-page .button-join{
+.main-page .content .mode1 .btn-join{
     background-color: rgb(44, 44, 45);
     border: none;
-    border-radius: 40px;
-    padding: 10px 30px;
     font-size: 20px;
     color: white;
-    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    margin: 30px 0;
+    transition: all .20s ease-in-out;
+}
+
+.main-page .content .mode1 .btn-join:hover{
+    scale: 1.05;
+}
+
+.main-page .content .mode2{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-page .content .mode2 h2{
+    font-size: 28px;
     margin-bottom: 40px;
 }
 
-.main-page .button-create-menti {
-    background-color: rgb(44, 44, 45);
+.main-page .content .mode2 .input-username {
+    width: 280px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
     border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    color: white;
-    font-size: 18px;
-    position: absolute;
-    bottom: 60px;
+    background-color: #F4F4F6;
+    border: 2px solid #F4F4F6;
+    border-radius: 10px;
 }
 
+.main-page .content .mode2 .input-password {
+    width: 280px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+    border: none;
+    background-color: #F4F4F6;
+    border: 2px solid #F4F4F6;
+    border-radius: 10px;
+}
+
+.main-page .content .mode2 .input-username:hover, 
+.main-page .content .mode2 .input-password:hover{
+    border: 2px solid #8860ff;
+}
+
+.main-page .content .mode2 .user-butons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.main-page .content .mode2 .btn-login {
+    background-color: rgb(44, 44, 45);
+    border: none;
+    font-size: 20px;
+    color: white;
+    width: 150px;
+    height: 50px;
+    transition: all .20s ease-in-out;
+}
+
+.main-page .content .mode2 .btn-login:hover{
+    scale: 1.05;
+}
+
+.main-page .content .mode2 .btn-register {
+    background-color: rgb(44, 44, 45);
+    border: none;
+    font-size: 20px;
+    color: white;
+    width: 150px;
+    height: 50px;
+    transition: all .20s ease-in-out;
+}
+
+.main-page .content .mode2 .btn-register:hover{
+    scale: 1.05;
+}

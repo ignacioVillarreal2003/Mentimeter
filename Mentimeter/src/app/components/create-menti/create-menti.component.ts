@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CreateMentiComponent {
   
-  // Lista de modos de menti con detalles como clase, ruta, imagen y título
   modes: any = [
     { class: "option1", router: "/mentiMultipleChoiceBuilder", image: `assets/MultipleChoice.png`, title: "Multiple choice" },
     { class: "option2", router: "/mentiFeedbackBuilder", image: `assets/Feedback.png`, title: "Feedback" },
