@@ -1,46 +1,44 @@
 <div class="menti-feedback-builder">
-    <header><img src="../../../assets/logo.svg" alt=""></header>
-
+    <header><a routerLink="/"><img src="assets/logo.svg" alt=""></a></header>
     <div class="container">
         <div class="editor-overview">
             <button class="btn-add-slide" (click)="AddSlide()">+</button>
-            <ul>
-                <li *ngFor="let cont of content; let i = index"><button class="btn-slide" (click)="OpenSlide(i)">Slide {{i}}</button></li>
-            </ul>
+            <ul><li *ngFor="let cont of content; let i = index"><button class="btn-slide" (click)="OpenSlide(i)">Slide {{i}}</button></li></ul>
             <button class="btn-submit" (click)="PostFeedback()"><img src="assets/enviar.png" alt=""></button>
         </div>
 
-        <div class="preview">
-            <p>{{ question }}</p>
-            <div class="feed">
-                <img src="assets/feed2.svg" alt="">
-                <img src="assets/feed3.svg" alt="">
-                <img src="assets/feed4.svg" alt="">
-                <img src="assets/feed5.svg" alt="">
-                <img src="assets/feed1.svg" alt="">
+        <div class="slide">
+            <div class="preview">
+                <p>{{ question }}</p>
+                <div class="feed">
+                    <img src="assets/feed2.svg" alt="">
+                    <img src="assets/feed3.svg" alt="">
+                    <img src="assets/feed4.svg" alt="">
+                    <img src="assets/feed5.svg" alt="">
+                    <img src="assets/feed1.svg" alt="">
+                </div>
+            </div>
+
+            <div class="options">
+                <div class="mode">
+                    <button class="mode1 modeOn" (click)="ChangeMode(1)"><img src="assets/Lapiz.png" alt=""></button>
+                    <button class="mode2 modeOff" (click)="ChangeMode(2)"><img src="assets/BrochaDeRodillo.png" alt=""></button>
+                </div>
+                <div class="content-mode1">
+                    <h2>Content</h2>
+                    <div class="specification1">
+                        <p>Question</p>
+                        <input class="input-question" type="text" [(ngModel)]="question" maxlength="120">
+                    </div>
+                </div>
+                <div class="content-mode2">
+                    <h2>Themes</h2>
+                    <div class="theme-list">
+                        <ul><li *ngFor="let bg of backgrounds"><button (click)="ChangeBackground(bg)"><img src="assets/{{bg}}"></button></li></ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="options">
-            <div class="mode">
-                <button class="mode1 modeOn" (click)="ChangeMode(1)"><img src="assets/Lapiz.png" alt=""></button>
-                <button class="mode2 modeOff" (click)="ChangeMode(2)"><img src="assets/BrochaDeRodillo.png" alt=""></button>
-            </div>
-            <div class="content-mode1">
-                <h2>Content</h2>
-                <div class="specification">
-                    <p>Question</p>
-                    <input class="input-question" type="text" [(ngModel)]="question" maxlength="120">
-                </div>
-            </div>
-            <div class="content-mode2">
-                <h2>Themes</h2>
-                <div class="theme-list">
-                    <ul>
-                        <li *ngFor="let bg of backgrounds"><button (click)="ChangeBackground(bg)"><img src="assets/{{bg}}"></button></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
