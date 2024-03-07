@@ -12,35 +12,28 @@ import Swal from 'sweetalert2';
 })
 export class MentiFeedbackBuilderComponent {
   content: IFeedbackContent[] = [];
-  question: string = "Question 0";
-  lastSlide: number = 0;
-
+  indexSlide: number = 0;
   backgrounds: string[] | undefined = undefined;
 
   constructor(private router: Router, private dataService: DataService, private httpService: HttpService) {
     this.backgrounds = this.dataService.backgrounds;
-    this.content.push({ question: "Question 0", rating: [0, 0, 0, 0, 0] });
+    this.content.push({ question: "Question 1", rating: [0, 0, 0, 0, 0] });
   }
 
   AddSlide() {
-    this.content[this.lastSlide].question = this.question;
-    const newQuestion = `Question ${this.content.length}`;
+    const newQuestion = `Question ${this.content.length + 1}`;
     this.content.push({
       question: newQuestion,
       rating: [0, 0, 0, 0, 0]
     });
-    this.lastSlide = this.content.length - 1;
-    this.question = newQuestion;
+    this.indexSlide = this.content.length - 1;    
   }
 
   OpenSlide(index: number) {
-    this.content[this.lastSlide].question = this.question;
-    this.lastSlide = index;
-    this.question = this.content[index].question;
+    this.indexSlide = index;
   }
 
   PostFeedback() {
-    this.content[this.lastSlide].question = this.question;
     if (this.dataService.username) {
       const feedback: IRoomFeedback = {
         username: this.dataService.username,
