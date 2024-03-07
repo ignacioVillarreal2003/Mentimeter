@@ -9,9 +9,8 @@ import { AuthenticationInterceptor } from './interceptor/authentication.intercep
 
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { CreateMentiComponent } from './components/create-menti/create-menti.component';
-import { OptionsMentiComponent } from './components/options-menti/options-menti.component';
-
-import { MentiEndComponent } from './components/menti-end/menti-end.component';
+import { OptionsUserComponent } from './components/options-user/options-user.component';
+import { EndComponent } from './components/end/end.component';
 
 import { FeedbackViewComponent } from './components/menti-view/feedback-view/feedback-view.component';
 import { MentiFeedbackResultsComponent } from './components/menti-results/menti-feedback-results/menti-feedback-results.component';
@@ -21,13 +20,14 @@ import { MentiMultipleChoiceBuilderComponent } from './components/menti-builder/
 import { MentiMultipleChoiceResultsComponent } from './components/menti-results/menti-multiple-choice-results/menti-multiple-choice-results.component';
 import { MultipleChoiceViewComponent } from './components/menti-view/multiple-choice-view/multiple-choice-view.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateMentiComponent,
     MainPageComponent,
-    OptionsMentiComponent,
-    MentiEndComponent,
+    OptionsUserComponent,
+    EndComponent,
     FeedbackViewComponent,
     MentiFeedbackResultsComponent,
     MentiFeedbackBuilderComponent,

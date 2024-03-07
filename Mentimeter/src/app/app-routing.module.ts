@@ -3,9 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { CreateMentiComponent } from './components/create-menti/create-menti.component';
-import { OptionsMentiComponent } from './components/options-menti/options-menti.component';
-
-import { MentiEndComponent } from './components/menti-end/menti-end.component';
+import { OptionsUserComponent } from './components/options-user/options-user.component';
+import { EndComponent } from './components/end/end.component';
 
 import { FeedbackViewComponent } from './components/menti-view/feedback-view/feedback-view.component';
 import { MentiFeedbackResultsComponent } from './components/menti-results/menti-feedback-results/menti-feedback-results.component';
@@ -18,9 +17,8 @@ import { MultipleChoiceViewComponent } from './components/menti-view/multiple-ch
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'createMenti', component: CreateMentiComponent },
-  { path: 'optionsMenti', component: OptionsMentiComponent },
-
-  { path: 'mentiEnd', component: MentiEndComponent },
+  { path: 'optionsUser', component: OptionsUserComponent },
+  { path: 'end', component: EndComponent },
 
   { path: 'mentiFeedbackBuilder', component: MentiFeedbackBuilderComponent },
   { path: 'mentiFeedbackResults', component: MentiFeedbackResultsComponent },

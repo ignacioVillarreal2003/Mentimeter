@@ -33,6 +33,7 @@
     border: none;
     transition: all .35s ease;
     margin-bottom: 60px;
+    border-bottom: 1px solid transparent;
 }
 
 .main-page .content .selector .btn-selector:hover{
@@ -141,10 +142,6 @@
     transition: all .20s ease-in-out;
 }
 
-.main-page .content .mode2 .btn-login:hover{
-    scale: 1.05;
-}
-
 .main-page .content .mode2 .btn-register {
     background-color: rgb(44, 44, 45);
     border: none;
@@ -155,6 +152,63 @@
     transition: all .20s ease-in-out;
 }
 
-.main-page .content .mode2 .btn-register:hover{
+.main-page .content .mode2 .btn-register:hover,
+.main-page .content .mode2 .btn-login:hover{
     scale: 1.05;
+}
+
+@media (max-width: 500px){
+    .main-page .content {
+        width: 300px;
+        height: 550px;
+    }
+
+    .main-page .content .selector .btn-selector{
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .main-page .content .mode1 h2{
+        font-size: 24px;
+    }
+    
+    .main-page .content .mode1 .input-room-code{
+        width: 240px;
+        height: 32px;
+        font-size: 24px;
+    }
+
+    .main-page .content .mode1 .btn-join{
+        font-size: 20px;
+        width: 160px;
+        height: 40px;
+    }
+
+    .main-page .content .mode2 h2{
+        font-size: 24px;
+    }
+    
+    .main-page .content .mode2 .input-username {
+        width: 240px;
+        height: 32px;
+        font-size: 24px;
+    }
+    
+    .main-page .content .mode2 .input-password {
+        width: 240px;
+        height: 32px;
+        font-size: 24px;
+    }
+
+    .main-page .content .mode2 .btn-login {
+        font-size: 20px;
+        width: 100px;
+        height: 40px;
+    }
+    
+    .main-page .content .mode2 .btn-register {
+        font-size: 20px;
+        width: 100px;
+        height: 40px;
+    }
 }

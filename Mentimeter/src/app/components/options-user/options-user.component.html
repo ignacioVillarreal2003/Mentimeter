@@ -1,0 +1,12 @@
+<div class="options-user">
+    <header>
+        <a routerLink="/"><img src="assets/logo.svg" alt=""></a>
+    </header>
+
+    <div class="content">
+        <h2>Change the password</h2>
+        <input class="input-password" type="password" [(ngModel)]="currentPassword" placeholder="current password">
+        <input class="input-password" type="password" [(ngModel)]="newPassword" placeholder="new password">
+        <button class="btn-password" (click)="ChangePassword()">Save</button>
+    </div>
+</div>
