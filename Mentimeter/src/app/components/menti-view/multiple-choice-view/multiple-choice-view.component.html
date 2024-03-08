@@ -1,10 +1,10 @@
 <div class="multiple-choice-view" *ngIf="multipleChoice">
-    <button class="btn-next" (click)="NextQuestion()">Next</button>
-    <p class="question">{{ multipleChoice.content[index].question }}</p>
-    <ul class="feed">
-        <li class="card" *ngFor="let options of multipleChoice.content[index].optionsMultipleChoice; let i = index">
-            <p>{{ options.option }}</p>
-            <button class="vote" (click)="DoRate(i)" (click)="ChangeColor(0)">Vote</button>
+    <button class="btn-next" (click)="NextQuestion()">Next question</button>
+    <h1>{{ multipleChoice.content[indexContent].question }}</h1>
+    <ul>
+        <li *ngFor="let options of multipleChoice.content[indexContent].optionsMultipleChoice; let i = index">
+            <button class="btn-vote" (click)="DoRate(i)" (click)="ChangeColor(i)">{{ options.option }}</button>
+            <div class="shape"></div>
         </li>
     </ul>
 </div>

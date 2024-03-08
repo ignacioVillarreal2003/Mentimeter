@@ -1,17 +1,18 @@
 <div class="menti-feedback-results" *ngIf="feedback">
-    <div class="controls">
-        <button class="btn-previous" (click)="PreviousQuestion()"><img src="assets/proximo.png" alt=""></button>
-        <button class="btn-next" (click)="NextQuestion()"><img src="assets/proximo.png" alt=""></button>
+    <div class="options">
+        <button class="btn-previous" (click)="PreviousQuestion()"><img src="assets/next.png" alt=""></button>
+        <h1>Room code {{ feedback.roomCode }}</h1>
+        <button class="btn-next" (click)="NextQuestion()"><img src="assets/next.png" alt=""></button>
     </div>
-
-    <h1>Room code {{ feedback.roomCode }}</h1>
-    <p class="question">{{ feedback.content[indexQuestion].question }}</p>
-    
-    <ul class="feed">
-        <li class="card" *ngFor="let f of feed">
-            <img src="assets/{{ f.image }}" alt="">
-            <p class="vote">{{ feedback.content[indexQuestion].rating[f.index] }}</p>
-        </li>
-    </ul>
     <button class="btn-leave" (click)="CloseSocket()">Leave</button>
+
+    <div class="content">
+        <h2>{{ feedback.content[indexContent].question }}</h2>
+        <ul>
+            <li *ngFor="let fContent of feedContent">
+                <img src="assets/{{ fContent.image }}" alt="">
+                <p>{{ feedback.content[indexContent].rating[fContent.index] }}</p>
+            </li>
+        </ul>
+    </div>
 </div>

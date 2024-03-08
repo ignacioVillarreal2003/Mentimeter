@@ -1,16 +1,19 @@
 <div class="menti-multiple-choice-results" *ngIf="multipleChoice">
-    <div class="controls">
-        <button class="btn-previous" (click)="PreviousQuestion()"><img src="../../../../assets/proximo.png" alt=""></button>
-        <button class="btn-next" (click)="NextQuestion()"><img src="../../../../assets/proximo.png" alt=""></button>
+    <div class="options">
+        <button class="btn-previous" (click)="PreviousQuestion()"><img src="assets/next.png" alt=""></button>
+        <h1>Room code {{ multipleChoice.roomCode }}</h1>
+        <button class="btn-next" (click)="NextQuestion()"><img src="assets/next.png" alt=""></button>
     </div>
-    <h1>Room code {{ multipleChoice.roomCode }}</h1>
-    <p class="question">{{ multipleChoice.content[indexQuestion].question }}</p>
-    <ul class="feed">
-        <li class="card" *ngFor="let options of multipleChoice.content[indexQuestion].optionsMultipleChoice">
-            <h2>{{  options.option }}</h2>
-            <p class="vote">{{ options.rating }}</p>
-        </li>
-    </ul>
     <button class="btn-leave" (click)="closeSocket()">Leave</button>
+
+    <div class="content">
+        <h2>{{ multipleChoice.content[indexContent].question }}</h2>
+        <ul>
+            <li *ngFor="let options of multipleChoice.content[indexContent].optionsMultipleChoice">
+                <h3>{{  options.option }}</h3>
+                <p class="vote">{{ options.rating }}</p>
+            </li>
+        </ul>
+    </div>
 </div>
 

@@ -11,9 +11,9 @@ import { IRoomMultipleChoice } from 'src/app/types';
   styleUrls: ['./menti-multiple-choice-results.component.css']
 })
 export class MentiMultipleChoiceResultsComponent {
-  indexQuestion: number = 0;
-  multipleChoice: IRoomMultipleChoice | undefined = undefined;
 
+  indexContent: number = 0;
+  multipleChoice: IRoomMultipleChoice | undefined = undefined;
   private subscription?: Subscription;
 
   constructor(private dataService: DataService, private socketService: SocketService, private router: Router) {
@@ -34,22 +34,21 @@ export class MentiMultipleChoiceResultsComponent {
   }
 
   ngAfterViewInit() {
-    // Cambiar el tema de la interfaz gráfica
     const background = document.querySelector('.menti-multiple-choice-results') as HTMLElement;
     background.style.backgroundImage = `url(assets/${this.dataService.background})`;
   }
 
   NextQuestion() {
     if (this.multipleChoice) {
-      if (this.indexQuestion < this.multipleChoice.content.length - 1) {
-        this.indexQuestion++;
+      if (this.indexContent < this.multipleChoice.content.length - 1) {
+        this.indexContent++;
       }
     }
   }
 
   PreviousQuestion() {
-    if (this.indexQuestion > 0) {
-      this.indexQuestion--;
+    if (this.indexContent > 0) {
+      this.indexContent--;
     }
   }
 

@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class MultipleChoiceViewComponent {
   multipleChoice: IRoomMultipleChoice | undefined = undefined;
-  index: number = 0;
+  indexContent: number = 0;
   isRate: boolean = false;
 
   constructor(private router: Router, private dataService: DataService, private httpService: HttpService) {
@@ -24,11 +24,11 @@ export class MultipleChoiceViewComponent {
 
   DoRate(n: number) {
     if (this.multipleChoice) {
-      const option: IMultipleChoiceOption[] = this.multipleChoice.content[this.index].optionsMultipleChoice;
+      const option: IMultipleChoiceOption[] = this.multipleChoice.content[this.indexContent].optionsMultipleChoice;
       option.forEach((e: IMultipleChoiceOption) => {
         e.rating = 0;
       })
-      this.multipleChoice.content[this.index].optionsMultipleChoice[n].rating = 1;
+      this.multipleChoice.content[this.indexContent].optionsMultipleChoice[n].rating = 1;
       this.isRate = true;
     }
   }
@@ -36,21 +36,19 @@ export class MultipleChoiceViewComponent {
   NextQuestion() {
     if (this.multipleChoice != undefined) {
       if (this.isRate) {
-        if (this.index < this.multipleChoice.content.length - 1) {
+        if (this.indexContent < this.multipleChoice.content.length - 1) {
           this.PostMultipleChoice()
-          this.index++;
+          this.indexContent++;
           this.ClearColor();
           this.isRate = false;
-        } else if (this.index == this.multipleChoice.content.length - 1) {
+        } else if (this.indexContent == this.multipleChoice.content.length - 1) {
           this.PostMultipleChoice();
           this.router.navigate(['/mentiEnd']);
           this.isRate = false;
         } else {
-          // Mostrar mensaje de error si no se ha seleccionado una opción
           this.GetError("Select an option.");
         }
       } else {
-        // Mostrar mensaje de error si no se ha seleccionado una opción
         this.GetError("Select an option.");
       }
     } else {
@@ -62,7 +60,7 @@ export class MultipleChoiceViewComponent {
     if (this.multipleChoice != undefined) {
       const multipleChoiceResult: IRoomAnswersMultipleChoice = {
         roomCode: this.multipleChoice.roomCode,
-        content: this.multipleChoice.content[this.index]
+        content: this.multipleChoice.content[this.indexContent]
       }
       this.httpService.PostRoomAnswersMultipleChoice(multipleChoiceResult).subscribe(
         (response: any) => {
@@ -86,31 +84,21 @@ export class MultipleChoiceViewComponent {
     });
   }
 
-  // Método para cambiar el color de las opciones de calificación
   ChangeColor(color: number) {
-    const buttons = document.querySelectorAll('.multiple-choice .vote') as NodeListOf<HTMLElement>;
-    // Establecer el fondo blanco para todas las opciones
+    console.log(color);
+    const buttons = document.querySelectorAll('.multiple-choice-view .shape') as NodeListOf<HTMLElement>;
     buttons.forEach((e) => {
       e.style.backgroundColor = "white";
     })
-    // Establecer el color de fondo según la opción seleccionada
     if (color >= 0 && color < buttons.length) {
-      buttons[color].style.backgroundColor = this.getBackgroundColorByIndex(color);
+      buttons[color].style.backgroundColor = "#79db68";
     }
   }
 
-  // Método para limpiar los colores de las opciones de calificación
   ClearColor() {
-    const buttons = document.querySelectorAll('.multiple-choice-view .vote') as NodeListOf<HTMLElement>;
-    // Establecer el fondo blanco para todas las opciones
+    const buttons = document.querySelectorAll('.multiple-choice-view .shape') as NodeListOf<HTMLElement>;
     buttons.forEach((e) => {
       e.style.backgroundColor = "white";
     })
-  }
-
-  // Método auxiliar para obtener el color de fondo según el índice
-  private getBackgroundColorByIndex(index: number): string {
-    const colorMap = ["#FF6868", "#ffa578", "#FBA834", "#79db68", "#65B741"];
-    return colorMap[index] || "white";
   }
 }
