@@ -1,0 +1,10 @@
+<div class="quiz-view" *ngIf="quiz">
+    <button class="btn-next" (click)="NextQuestion()">Next question</button>
+    <h1>{{ quiz.content[indexContent].question }}</h1>
+    <ul>
+        <li *ngFor="let options of quiz.content[indexContent].optionsQuiz; let i = index">
+            <button class="btn-vote" (click)="DoRate(i)" (click)="ChangeColor(i)">{{ options.option }}</button>
+            <div class="shape"></div>
+        </li>
+    </ul>
+</div>

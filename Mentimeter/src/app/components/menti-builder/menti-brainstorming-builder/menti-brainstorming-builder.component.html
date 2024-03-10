@@ -1,0 +1,37 @@
+<div class="menti-brainstorming-builder">
+    <header><a routerLink="/"><img src="assets/logo.svg" alt=""></a></header>
+    <div class="container">
+        <div class="editor-overview">
+            <button class="btn-add-slide" (click)="AddSlide()">+</button>
+            <ul><li *ngFor="let cont of content; let i = index"><button class="btn-slide" (click)="OpenSlide(i)">Slide {{i + 1}}</button></li></ul>
+            <button class="btn-submit" (click)="PostBrainstorming()"><img src="assets/send.png" alt=""></button>
+        </div>
+
+        <div class="slide">
+            <div class="preview">
+                <p>{{ content[indexSlide].question }}</p>
+            </div>
+
+            <div class="options">
+                <div class="mode">
+                    <button class="mode1 modeOn" (click)="ChangeMode(1)"><img src="assets/mode1.png" alt=""></button>
+                    <button class="mode2 modeOff" (click)="ChangeMode(2)"><img src="assets/mode2.png" alt=""></button>
+                </div>
+                <div class="content-mode1">
+                    <h2>Content</h2>
+                    <div class="specification1">
+                        <p>Question</p>
+                        <input class="input-question" type="text" [(ngModel)]="content[indexSlide].question" maxlength="120">
+                    </div>
+                </div>
+                <div class="content-mode2">
+                    <h2>Themes</h2>
+                    <div class="theme-list">
+                        <ul><li *ngFor="let bg of backgrounds"><button (click)="ChangeBackground(bg)"><img src="assets/{{bg}}"></button></li></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

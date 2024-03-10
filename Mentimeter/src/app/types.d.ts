@@ -75,7 +75,7 @@ export interface IRoomQuiz{
 
 export interface IRoomAnswersQuiz{
     roomCode: string,
-    content: IQuizContent[]
+    content: IQuizContent
 }
 
 export interface IQuizContent{

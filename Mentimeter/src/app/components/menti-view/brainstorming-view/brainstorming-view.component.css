@@ -1,0 +1,68 @@
+.brainstorming-view {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../../../../assets/background3.avif);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.brainstorming-view .btn-next {
+    background-color: rgba(255, 255, 255, 0.397);
+    padding: 10px 30px;
+    font-size: 24px;
+    border: none;
+    width: 100%;
+    font-size: 26px;
+}
+
+.brainstorming-view .btn-next:hover {
+    background-color: rgba(190, 253, 242, 0.658);
+}
+
+.brainstorming-view h1 {
+    font-size: 40px;
+    margin: 50px 0;
+    text-align: center;
+    width: 80%;
+}
+
+.brainstorming-view .input-response {
+    width: 480px;
+    height: 200px;
+    font-size: 25px;
+    border: none;
+    background-color: #F4F4F6;
+    border: 2px solid #F4F4F6;
+    padding: 10px;
+}
+
+.brainstorming-view .input-response:hover{
+    border: 2px solid #8860ff;
+}
+
+@media (max-width: 1050px){
+    .brainstorming-view h1 {
+        font-size: 35px;
+    }
+}
+
+
+
+@media (max-width: 650px){
+    .brainstorming-view h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 525px){
+
+    .brainstorming-view .input-response {
+        width: 300px;
+        height: 130px;
+    }
+}

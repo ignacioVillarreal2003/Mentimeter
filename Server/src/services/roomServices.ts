@@ -176,7 +176,7 @@ const postRoomAnswersBrainstorming = async (roomCode: string, content: IBrainsto
         const room: IRoomBrainstorming = await rooms.getRoomBrainstorming(roomCode);
         if (room) {
             room.content.forEach((e: IBrainstormingContent) =>{
-                if (e.question = content.question){
+                if (e.question == content.question){
                     content.ideas.forEach((s: string) => {
                         e.ideas.push(s);
                     })

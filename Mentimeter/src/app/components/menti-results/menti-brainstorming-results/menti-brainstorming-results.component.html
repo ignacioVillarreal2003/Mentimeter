@@ -1,0 +1,17 @@
+<div class="menti-brainstorming-results" *ngIf="brainstorming">
+    <div class="options">
+        <button class="btn-previous" (click)="PreviousQuestion()"><img src="assets/next.png" alt=""></button>
+        <h1>Room code {{ brainstorming.roomCode }}</h1>
+        <button class="btn-next" (click)="NextQuestion()"><img src="assets/next.png" alt=""></button>
+    </div>
+    <button class="btn-leave" (click)="CloseSocket()">Leave</button>
+
+    <div class="content">
+        <h2>{{ brainstorming.content[indexContent].question }}</h2>
+        <ul>
+            <li *ngFor="let ideas of brainstorming.content[indexContent].ideas">
+                <p>{{ ideas }}</p>
+            </li>
+        </ul>
+    </div>
+</div>

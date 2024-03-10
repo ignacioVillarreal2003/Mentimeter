@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
-import { IRoomFeedback, IRoomMultipleChoice } from '../types';
+import { IRoomBrainstorming, IRoomFeedback, IRoomMultipleChoice, IRoomQuiz } from '../types';
 import { DataService } from './data.service';
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class SocketService {
         roomCode = this.dataService.roomFeedback.roomCode;      
       } else if (this.dataService.roomMultipleChoice){
         roomCode = this.dataService.roomMultipleChoice.roomCode;      
+      } else if (this.dataService.roomBrainstorming){
+        roomCode = this.dataService.roomBrainstorming.roomCode;      
+      } else if (this.dataService.roomQuiz){
+        roomCode = this.dataService.roomQuiz.roomCode;      
       }
       this.socket.emit('joinRoom', roomCode);
     });
@@ -38,6 +42,14 @@ export class SocketService {
 
     this.socket.on('sendNewMultipleChoice', (room: IRoomMultipleChoice) => {
       this.message$.next(['sendNewMultipleChoice', JSON.stringify(room)]);
+    });
+
+    this.socket.on('sendNewBrainstorming', (room: IRoomBrainstorming) => {
+      this.message$.next(['sendNewBrainstorming', JSON.stringify(room)]);
+    });
+
+    this.socket.on('sendNewQuiz', (room: IRoomQuiz) => {
+      this.message$.next(['sendNewQuiz', JSON.stringify(room)]);
     });
   }
   

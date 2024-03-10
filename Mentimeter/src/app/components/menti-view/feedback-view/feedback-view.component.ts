@@ -50,7 +50,7 @@ export class FeedbackViewComponent {
           this.isRate = false;
         } else if (this.indexContent == this.feedback.content.length - 1) {
           this.PostFeedback();
-          this.router.navigate(['/mentiEnd']);
+          this.router.navigate(['/end']);
           this.isRate = false;
         } else {
           this.GetError("Select an option.");

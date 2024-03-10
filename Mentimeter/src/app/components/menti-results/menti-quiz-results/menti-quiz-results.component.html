@@ -1,0 +1,19 @@
+<div class="menti-quiz-results" *ngIf="quiz">
+    <div class="options">
+        <button class="btn-previous" (click)="PreviousQuestion()"><img src="assets/next.png" alt=""></button>
+        <h1>Room code {{ quiz.roomCode }}</h1>
+        <button class="btn-next" (click)="NextQuestion()"><img src="assets/next.png" alt=""></button>
+    </div>
+    <button class="btn-leave" (click)="CloseSocket()">Leave</button>
+    <button class="btn-reveal" (click)="Reveal()">Reveal</button>
+
+    <div class="content">
+        <h2>{{ quiz.content[indexContent].question }}</h2>
+        <ul>
+            <li class="reveal-{{ideas.isCorect}}" *ngFor="let ideas of quiz.content[indexContent].optionsQuiz">
+                <h3>{{ ideas.option }}</h3>
+                <p>{{ ideas.quantity }}</p>
+            </li>
+        </ul>
+    </div>
+</div>

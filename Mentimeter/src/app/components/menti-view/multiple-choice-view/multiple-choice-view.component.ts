@@ -43,7 +43,7 @@ export class MultipleChoiceViewComponent {
           this.isRate = false;
         } else if (this.indexContent == this.multipleChoice.content.length - 1) {
           this.PostMultipleChoice();
-          this.router.navigate(['/mentiEnd']);
+          this.router.navigate(['/end']);
           this.isRate = false;
         } else {
           this.GetError("Select an option.");

@@ -20,6 +20,13 @@ import { MentiMultipleChoiceBuilderComponent } from './components/menti-builder/
 import { MentiMultipleChoiceResultsComponent } from './components/menti-results/menti-multiple-choice-results/menti-multiple-choice-results.component';
 import { MultipleChoiceViewComponent } from './components/menti-view/multiple-choice-view/multiple-choice-view.component';
 
+import { MentiBrainstormingBuilderComponent } from './components/menti-builder/menti-brainstorming-builder/menti-brainstorming-builder.component';
+import { MentiBrainstormingResultsComponent } from './components/menti-results/menti-brainstorming-results/menti-brainstorming-results.component';
+import { BrainstormingViewComponent } from './components/menti-view/brainstorming-view/brainstorming-view.component';
+
+import { MentiQuizBuilderComponent } from './components/menti-builder/menti-quiz-builder/menti-quiz-builder.component';
+import { MentiQuizResultsComponent } from './components/menti-results/menti-quiz-results/menti-quiz-results.component';
+import { QuizViewComponent } from './components/menti-view/quiz-view/quiz-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,13 @@ import { MultipleChoiceViewComponent } from './components/menti-view/multiple-ch
     MentiFeedbackBuilderComponent,
     MentiMultipleChoiceBuilderComponent,
     MentiMultipleChoiceResultsComponent,
-    MultipleChoiceViewComponent
+    MultipleChoiceViewComponent,
+    MentiBrainstormingBuilderComponent,
+    MentiBrainstormingResultsComponent,
+    BrainstormingViewComponent,
+    MentiQuizBuilderComponent,
+    MentiQuizResultsComponent,
+    QuizViewComponent
   ],
   imports: [
     BrowserModule,

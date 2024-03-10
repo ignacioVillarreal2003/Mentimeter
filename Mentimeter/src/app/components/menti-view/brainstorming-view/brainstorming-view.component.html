@@ -1,0 +1,5 @@
+<div class="brainstorming-view" *ngIf="brainstorming">
+    <button class="btn-next" (click)="NextQuestion()">Next question</button>
+    <h1>{{ brainstorming.content[indexContent].question }}</h1>
+    <textarea class="input-response" name="response" id="" cols="30" rows="10" placeholder="response" [(ngModel)]="response"></textarea>
+</div>
